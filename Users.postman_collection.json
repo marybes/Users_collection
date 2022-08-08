@@ -1,0 +1,588 @@
+{
+	"info": {
+		"_postman_id": "68be5930-4d42-42c7-9707-9aea90185bbf",
+		"name": "Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21710891"
+	},
+	"item": [
+		{
+			"name": "doRegister",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"jsoncheck\", function () \r",
+							"{ \r",
+							"    var jsonData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(jsonData.email).to.eql(pm.iterationData.get(\"testemail1137@gmail.com\"));\r",
+							"    pm.expect(jsonData.name).to.eql(pm.iterationData.get(\"testuser1137\"));\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "privet3@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "testusercheg3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/doregister",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"doregister"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test1003@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "test+1003",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User One Field",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "testemailcheg@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "field",
+							"value": "cat",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "Барсик",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/useronefield",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"useronefield"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test+1010@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "field",
+							"value": "cat",
+							"disabled": true
+						},
+						{
+							"key": "value",
+							"value": "Барсик",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "task_title",
+							"value": "Сложная задачка",
+							"type": "text"
+						},
+						{
+							"key": "task_description",
+							"value": "Описание задачки",
+							"type": "text"
+						},
+						{
+							"key": "email_owner",
+							"value": "privet1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "email_assign",
+							"value": "privet1@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/createtask",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createtask"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "task_title",
+							"value": "Сложная задачка",
+							"type": "text"
+						},
+						{
+							"key": "task_description",
+							"value": "Описание задачки",
+							"type": "text"
+						},
+						{
+							"key": "email_owner",
+							"value": "privet1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "email_assign",
+							"value": "privet1@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/gettask?id_task=182",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"gettask"
+					],
+					"query": [
+						{
+							"key": "id_task",
+							"value": "182"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Task In Cron",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email_owner\" : \"dudnikdenys777@gmail.com\",\r\n    \"task_id\" : \"236\",\r\n    \"hours\" : 8,\r\n    \"minutes\" : 30,\r\n    \"month\" : 1,\r\n    \"days\" : 3,\r\n    \"day_weeks\" : 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/addtaskincron",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"addtaskincron"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Avatar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/C:/Users/XPaladin/Desktop/Новый текстовый документ.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/addavatar/?email=testirovshikpohelloworld@gmail.com",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"addavatar",
+						""
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "testirovshikpohelloworld@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User With Tasks",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"cripochek1\",\r\n    \"email\" : \"cripochek1@gmail.com\",\r\n    \"companies\" : [21,22,23],\r\n    \"tasks\" : [{\r\n        \"title\" : \"Hard task\",\r\n        \"description\" : \"Big description\"\r\n    },\r\n    {\r\n          \"title\" : \"Simple task\",\r\n        \"description\" : \"No need description\"\r\n    }\r\n],\r\n    \"hobby\" : \"swimming\",\r\n    \"adres\" : \"Street 78\",\r\n    \"name1\" : \"John\",\r\n    \"surname1\" : \"Andersen\",\r\n    \"fathername1\" : \"Steave\",\r\n    \"cat\" : \"Baton\",\r\n    \"dog\" : \"Hvost\",\r\n    \"parrot\" : \"Wing\",\r\n    \"cavy\" : \"Cake\",\r\n    \"hamster\" : \"Cheap\",\r\n    \"squirrel\" : \"Dail\",\r\n    \"phone\" : \"777 77 77\",\r\n    \"inn\" : \"123456789012\",\r\n    \"gender\" : \"man\",\r\n    \"birthday\" : \"11.11.2011\",\r\n    \"date_start\" : \"07.03.2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/createuserwithtasks",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createuserwithtasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Company",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"company_name\" : \"MySuperMagCompanyName\",\r\n    \"company_type\" : \"ИП\",\r\n    \"company_users\" : [\"privet1@gmail.com\", \"privet2@gmail.com\"],\r\n    \"email_owner\"  : \"privet3@gmail.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/createcompany",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"createcompany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Company",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_company",
+							"value": "62",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/getcompany",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"getcompany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Magic Search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\" : \"testusercheg1\",\r\n    \"include\" : \"ALL\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Full",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" var jsonData = pm.response.json();\r",
+							" console.log(jsonData);\r",
+							"\r",
+							" console.log(jsonData.name);\r",
+							" console.log(jsonData[\"email\"]);\r",
+							" console.log(jsonData['date_start']);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "cripochek1@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/getuserfull",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"getuserfull"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" var jsonData = pm.response.json();\r",
+							" console.log(jsonData);\r",
+							"\r",
+							" console.log(jsonData.name);\r",
+							" console.log(jsonData[\"email\"]);\r",
+							" console.log(jsonData['date_start']);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "privet1@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/getuser",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"getuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task Response",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email_owner\" : \"privet1@gmail.com\",\r\n    \"task_id\" : \"65\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/deletetask",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"deletetask"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
